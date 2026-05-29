@@ -6,11 +6,11 @@
 /*   By: gshekari <gshekari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 14:32:44 by gshekari          #+#    #+#             */
-/*   Updated: 2026/05/28 14:36:11 by gshekari         ###   ########.fr       */
+/*   Updated: 2026/05/29 18:27:47 by gshekari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMALL_HPP
+#ifndef ANIMAL_HPP
 #define ANIMAL_HPP
 
 #include <iostream>
@@ -23,7 +23,10 @@ class Animal
 		Animal(std::string type);
 		Animal(const Animal &other);
 		Animal &operator=(const Animal &other);
-		~Animal();
+		virtual ~Animal();
+		std::string getType() const;
+		virtual void makeSound() const;
+
 };
 
 #endif

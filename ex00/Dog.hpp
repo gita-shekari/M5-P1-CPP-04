@@ -6,7 +6,7 @@
 /*   By: gshekari <gshekari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 14:47:38 by gshekari          #+#    #+#             */
-/*   Updated: 2026/05/28 16:23:17 by gshekari         ###   ########.fr       */
+/*   Updated: 2026/05/29 17:51:33 by gshekari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 
 #include "Animal.hpp"
 
-class Dog : virtual public Animal
+class Dog : public Animal
 {
-	private:
 	public:
-		void makeSound();
-
+		Dog();
+		Dog(const Dog &other);
+		Dog &operator=(const Dog &other);
+		~Dog();
+		void makeSound() const;
 };
 
 #endif

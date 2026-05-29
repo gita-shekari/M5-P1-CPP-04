@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gshekari <gshekari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/28 15:07:34 by gshekari          #+#    #+#             */
-/*   Updated: 2026/05/29 16:45:12 by gshekari         ###   ########.fr       */
+/*   Created: 2026/05/29 17:48:42 by gshekari          #+#    #+#             */
+/*   Updated: 2026/05/29 17:48:43 by gshekari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Cat_HPP
-#define Cat_HPP
+#include "WrongCat.hpp"
 
-#include "Animal.hpp"
-
-class Cat : public Animal
+WrongCat::WrongCat() : WrongAnimal("WrongCat")
 {
-	public:
-		Cat();
-		Cat(const Cat &other);
-		Cat &operator=(const Cat &other);
-		~Cat();
-		void makeSound() const;
-};
+}
+WrongCat::WrongCat(const WrongCat &obj):WrongAnimal(obj.type)
+{
+}
+WrongCat &WrongCat::operator=(const WrongCat &obj)
+{
+	if(this != &obj)
+		this->type = obj.type;
+	return *this;
+}
+WrongCat::~WrongCat()
+{
 
-#endif
+}
+void WrongCat::makeSound() const
+{
+	std::cout << "Meaw!" << std::endl;
+}
