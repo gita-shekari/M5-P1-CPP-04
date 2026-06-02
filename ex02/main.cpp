@@ -6,7 +6,7 @@
 /*   By: gshekari <gshekari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/20 14:54:51 by gshekari          #+#    #+#             */
-/*   Updated: 2026/06/02 20:06:23 by gshekari         ###   ########.fr       */
+/*   Updated: 2026/06/02 20:32:23 by gshekari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 int main()
 {
+	//Animal a;
 	const int size = 10;
 	Animal* animals[size];
 

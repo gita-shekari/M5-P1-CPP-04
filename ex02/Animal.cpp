@@ -6,7 +6,7 @@
 /*   By: gshekari <gshekari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 14:32:32 by gshekari          #+#    #+#             */
-/*   Updated: 2026/06/02 20:30:38 by gshekari         ###   ########.fr       */
+/*   Updated: 2026/06/02 20:30:55 by gshekari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,4 @@ Animal::~Animal()
 std::string Animal::getType() const
 {
 	return type;
-}
-void Animal::makeSound() const
-{
-	std::cout << "Animal Sound!" << std::endl;
 }

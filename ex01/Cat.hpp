@@ -6,7 +6,7 @@
 /*   By: gshekari <gshekari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 15:07:34 by gshekari          #+#    #+#             */
-/*   Updated: 2026/05/29 20:54:02 by gshekari         ###   ########.fr       */
+/*   Updated: 2026/06/02 20:13:07 by gshekari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ class Cat : public Animal
 		Cat &operator=(const Cat &other);
 		~Cat();
 		void makeSound() const;
+		Brain* getBrain() const;
+
 };
 
 #endif
