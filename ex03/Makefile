@@ -1,5 +1,5 @@
 NAME     := run
-SRCS     := main.cpp
+SRCS     := main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 OBJS     := $(SRCS:.cpp=.o)
 
 all: $(NAME)
