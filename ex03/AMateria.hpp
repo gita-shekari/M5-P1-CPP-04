@@ -1,18 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gshekari <gshekari@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/03 16:54:24 by gshekari          #+#    #+#             */
+/*   Updated: 2026/06/03 19:24:36 by gshekari         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#ifndef AMTERIA_HPP
+#define AMTERIA_HPP
 
+#include <iostream>
+#include <ICharacter.hpp>
 
+class AMateria
+{
+	protected:
+		std::string type;
+	public:
+		AMateria(std::string const &type);
+		AMateria(const AMateria &other);
+		AMateria &operator=(const AMateria &other);
+		~AMateria();
+		std::string const &getType() const;
+		virtual AMateria* clone() const = 0;
+		virtual void use(ICharacter& target);
+};
 
-
-
-
-// class AMateria
-// {
-// protected:
-// [...]
-// public:
-// AMateria(std::string const & type);
-// [...]
-// std::string const & getType() const; //Returns the materia type
-// virtual AMateria* clone() const = 0;
-// virtual void use(ICharacter& target);
-// };
+#endif
