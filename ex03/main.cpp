@@ -6,7 +6,7 @@
 /*   By: gshekari <gshekari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 19:49:02 by gshekari          #+#    #+#             */
-/*   Updated: 2026/06/04 16:39:26 by gshekari         ###   ########.fr       */
+/*   Updated: 2026/06/04 17:51:19 by gshekari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int main()
 
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
-
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
 

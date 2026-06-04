@@ -6,10 +6,11 @@
 /*   By: gshekari <gshekari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/20 14:54:51 by gshekari          #+#    #+#             */
-/*   Updated: 2026/06/02 20:06:23 by gshekari         ###   ########.fr       */
+/*   Updated: 2026/06/04 19:41:41 by gshekari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 
@@ -31,41 +32,82 @@ int main()
 	for (int i = 0; i < size; i++)
 		delete animals[i];
 
-	std::cout << "\n=== Copy Constructor Test ===\n" << std::endl;
+	// ==========================================================
+	// COPY CONSTRUCTOR TEST
+	// ==========================================================
 
-	Dog dog1;
-	dog1.getBrain()->setIdea(0, "Bone");
+	std::cout << "\n=== Dog Copy Constructor Test ===\n" << std::endl;
 
-	Dog dog2(dog1);
+	Dog* dog1 = new Dog();
 
-	dog2.getBrain()->setIdea(0, "Steak");
+	dog1->getBrain()->setIdea(0, "Bone");
+	dog1->getBrain()->setIdea(1, "Walk");
 
-	std::cout << "dog1: "
-			  << dog1.getBrain()->getIdea(0)
+	Dog* dog2 = new Dog(*dog1); // Copy constructor
+
+	std::cout << "Brain addresses before modification:" << std::endl;
+	std::cout << "dog1 brain: " << dog1->getBrain() << std::endl;
+	std::cout << "dog2 brain: " << dog2->getBrain() << std::endl;
+
+	dog2->getBrain()->setIdea(0, "Steak");
+
+	std::cout << "\nIdeas after modifying dog2:" << std::endl;
+	std::cout << "dog1 idea[0]: "
+			  << dog1->getBrain()->getIdea(0) << std::endl;
+	std::cout << "dog2 idea[0]: "
+			  << dog2->getBrain()->getIdea(0) << std::endl;
+
+	delete dog1;
+	delete dog2;
+
+	// ==========================================================
+	// ASSIGNMENT OPERATOR TEST
+	// ==========================================================
+
+	std::cout << "\n=== Cat Assignment Operator Test ===\n" << std::endl;
+
+	Cat* cat1 = new Cat();
+	Cat* cat2 = new Cat();
+
+	cat1->getBrain()->setIdea(0, "Mouse");
+	cat1->getBrain()->setIdea(1, "Bird");
+
+	std::cout << "Brain addresses before assignment:" << std::endl;
+	std::cout << "cat1 brain: " << cat1->getBrain() << std::endl;
+	std::cout << "cat2 brain: " << cat2->getBrain() << std::endl;
+
+	*cat2 = *cat1; // Assignment operator
+
+	std::cout << "\nBrain addresses after assignment:" << std::endl;
+	std::cout << "cat1 brain: " << cat1->getBrain() << std::endl;
+	std::cout << "cat2 brain: " << cat2->getBrain() << std::endl;
+
+	cat2->getBrain()->setIdea(0, "Sleep");
+
+	std::cout << "\nIdeas after modifying cat2:" << std::endl;
+	std::cout << "cat1 idea[0]: "
+			  << cat1->getBrain()->getIdea(0) << std::endl;
+	std::cout << "cat2 idea[0]: "
+			  << cat2->getBrain()->getIdea(0) << std::endl;
+
+	// ==========================================================
+	// SELF ASSIGNMENT TEST
+	// ==========================================================
+
+	std::cout << "\n=== Self Assignment Test ===\n" << std::endl;
+
+	cat1->getBrain()->setIdea(2, "Fish");
+
+	*cat1 = *cat1;
+
+	std::cout << "cat1 idea[2] after self assignment: "
+			  << cat1->getBrain()->getIdea(2)
 			  << std::endl;
 
-	std::cout << "dog2: "
-			  << dog2.getBrain()->getIdea(0)
-			  << std::endl;
+	delete cat1;
+	delete cat2;
 
-	std::cout << "\n=== Assignment Operator Test ===\n" << std::endl;
-
-	Cat cat1;
-	Cat cat2;
-
-	cat1.getBrain()->setIdea(0, "Mouse");
-
-	cat2 = cat1;
-
-	cat2.getBrain()->setIdea(0, "Sleep");
-
-	std::cout << "cat1: "
-			  << cat1.getBrain()->getIdea(0)
-			  << std::endl;
-
-	std::cout << "cat2: "
-			  << cat2.getBrain()->getIdea(0)
-			  << std::endl;
+	std::cout << "\n=== End of Tests ===\n" << std::endl;
 
 	return 0;
 }

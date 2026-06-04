@@ -6,7 +6,7 @@
 /*   By: gshekari <gshekari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 19:17:44 by gshekari          #+#    #+#             */
-/*   Updated: 2026/06/02 20:17:43 by gshekari         ###   ########.fr       */
+/*   Updated: 2026/06/04 19:32:10 by gshekari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ Brain::Brain()
 
 Brain::Brain(const Brain &other)
 {
-	*this = other;
+	for (int i = 0; i < 100; i++)
+		{
+			ideas[i] = other.ideas[i];
+		}
 	std::cout << "Brain copy constructor called" << std::endl;
 }
 

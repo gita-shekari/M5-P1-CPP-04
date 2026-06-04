@@ -6,67 +6,58 @@
 /*   By: gshekari <gshekari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/20 14:54:51 by gshekari          #+#    #+#             */
-/*   Updated: 2026/06/02 20:32:23 by gshekari         ###   ########.fr       */
+/*   Updated: 2026/06/04 20:07:40 by gshekari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include <iostream>
 
 int main()
 {
-	//Animal a;
-	const int size = 10;
+	std::cout << "\n=== Abstract class test ===\n" << std::endl;
+	// Animal a;
+	std::cout << "\n=== Polymorphism test ===\n" << std::endl;
+
+	const Animal* dog = new Dog();
+	const Animal* cat = new Cat();
+
+	std::cout << "\n--- makeSound() ---\n" << std::endl;
+
+	dog->makeSound();
+	cat->makeSound();
+	
+	std::cout << "\n--- Deleting single objects ---\n" << std::endl;
+
+	delete dog;
+	delete cat;
+
+	std::cout << "\n=== Array of Animals test ===\n" << std::endl;
+
+	const int size = 6;
 	Animal* animals[size];
 
-	std::cout << "\n=== Creating Animals ===\n" << std::endl;
+	for (int i = 0; i < size; i++)
+	{
+		if (i < size / 2)
+			animals[i] = new Dog();
+		else
+			animals[i] = new Cat();
+	}
 
-	for (int i = 0; i < size / 2; i++)
-		animals[i] = new Dog();
+	std::cout << "\n--- makeSound loop ---\n" << std::endl;
 
-	for (int i = size / 2; i < size; i++)
-		animals[i] = new Cat();
+	for (int i = 0; i < size; i++)
+		animals[i]->makeSound();
 
-	std::cout << "\n=== Deleting Animals ===\n" << std::endl;
+	std::cout << "\n--- Deleting array ---\n" << std::endl;
 
 	for (int i = 0; i < size; i++)
 		delete animals[i];
 
-	std::cout << "\n=== Copy Constructor Test ===\n" << std::endl;
-
-	Dog dog1;
-	dog1.getBrain()->setIdea(0, "Bone");
-
-	Dog dog2(dog1);
-
-	dog2.getBrain()->setIdea(0, "Steak");
-
-	std::cout << "dog1: "
-			  << dog1.getBrain()->getIdea(0)
-			  << std::endl;
-
-	std::cout << "dog2: "
-			  << dog2.getBrain()->getIdea(0)
-			  << std::endl;
-
-	std::cout << "\n=== Assignment Operator Test ===\n" << std::endl;
-
-	Cat cat1;
-	Cat cat2;
-
-	cat1.getBrain()->setIdea(0, "Mouse");
-
-	cat2 = cat1;
-
-	cat2.getBrain()->setIdea(0, "Sleep");
-
-	std::cout << "cat1: "
-			  << cat1.getBrain()->getIdea(0)
-			  << std::endl;
-
-	std::cout << "cat2: "
-			  << cat2.getBrain()->getIdea(0)
-			  << std::endl;
+	std::cout << "\n=== End of test ===\n" << std::endl;
 
 	return 0;
 }
