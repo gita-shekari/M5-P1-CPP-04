@@ -6,11 +6,11 @@
 /*   By: gshekari <gshekari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 19:16:44 by gshekari          #+#    #+#             */
-/*   Updated: 2026/06/03 21:09:30 by gshekari         ###   ########.fr       */
+/*   Updated: 2026/06/04 15:45:19 by gshekari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <AMateria.hpp>
+#include "AMateria.hpp"
 
 AMateria::AMateria(std::string const & type): type(type)
 {

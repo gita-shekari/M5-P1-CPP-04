@@ -6,7 +6,7 @@
 /*   By: gshekari <gshekari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 16:54:24 by gshekari          #+#    #+#             */
-/*   Updated: 2026/06/03 21:13:16 by gshekari         ###   ########.fr       */
+/*   Updated: 2026/06/04 16:18:08 by gshekari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #define AMTERIA_HPP
 
 #include <iostream>
-#include <ICharacter.hpp>
+#include "ICharacter.hpp"
+class ICharacter;
 
 class AMateria
 {

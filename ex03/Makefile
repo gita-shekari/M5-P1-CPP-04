@@ -1,21 +1,30 @@
 NAME     := run
+
 SRCS     := main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
-OBJS     := $(SRCS:.cpp=.o)
+
+OBJ_DIR  := obj
+OBJS     := $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
+
+CXX      := c++
+CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	c++ $(OBJS) -o $@
+	$(CXX) $(OBJS) -o $@
 
-%.o: %.cpp
-	c++ -Wall -Wextra -Werror -std=c++98 -o $@ -c $<
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
+
+$(OBJ_DIR)/%.o: %.cpp | $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(OBJS)
+	@rm -rf $(OBJ_DIR)
 
 fclean: clean
 	@rm -f $(NAME)
 
-re:     fclean all
+re: fclean all
 
-.PHONY: all clean fclean format re
+.PHONY: all clean fclean re
