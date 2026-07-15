@@ -6,7 +6,7 @@
 /*   By: gshekari <gshekari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 19:49:02 by gshekari          #+#    #+#             */
-/*   Updated: 2026/06/04 17:51:19 by gshekari         ###   ########.fr       */
+/*   Updated: 2026/07/15 18:52:20 by gshekari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,24 +29,28 @@ int main()
 	ICharacter* me = new Character("me");
 
 	std::cout << "\n========== [ CREATE AND EQUIP MATERIA ] ==========\n";
-	AMateria* tmp;
 
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
+	AMateria *ice = src->createMateria("ice");
+	AMateria *cure = src->createMateria("cure");
+	me->equip(ice);
+	me->equip(cure);
 
 	std::cout << "\n========== [ CREATE TARGET BOB ] ==========\n";
+
 	ICharacter* bob = new Character("bob");
+	bob->equip(src->createMateria("ice"));
 
 	std::cout << "\n========== [ USE MATERIA ] ==========\n";
+
 	me->use(0, *bob);
 	me->use(1, *bob);
+	me->unequip(1);
 
 	std::cout << "\n========== [ CLEANUP ] ==========\n";
 	delete bob;
 	delete me;
 	delete src;
+	delete cure;
 
 	return 0;
 }
